@@ -1,1 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#container
+{
+   max-width: 50rem;
+   background-color: aquamarine;
+   margin: auto;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+#upperPart
+{
+    display: flex;
+    gap: 20%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+#lowerPart
+{
+    padding: 1rem 3rem;
+}
+#history{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius:15px;
+    width: max-content;
+    height: max-content;
+    float: right;
+    margin-right: 20;
+}
 
+#icon
+{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 6px;
+    font-size: 30px;
+    color: grey;
+    border: none;
+}
+form{
+    display: flex;
+    margin-left: 15rem;
+    gap: 4%;
+    justify-content: center;
+    align-items: center;
+}
+#input
+{
+    padding: 14px;
+}
+label
+{
+    font-size: 25px;
+}
+#icon
+{
+    margin-top: auto auto;
+}
+#card
+{
+    width: 50%;
+    height: 60vh;
+    margin: auto;
+    margin-top: 20px;
+    padding: 1rem;
+    line-height: 2rem;
+    background-color: rgb(249, 184, 245);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
