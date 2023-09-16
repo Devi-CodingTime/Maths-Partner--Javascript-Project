@@ -13,7 +13,7 @@
     <div id="container">
         <div id="upperPart">
             <h2>Math Partner<img src="image/1f3c6.svg" alt="Troffy" style="height: 40px; width:40px; margin-left: 10px;"/></h2>
-            <button type="button" id="history">SAVED SOLUTION</button>
+            <button type="button" id="history" onclick="showData()">SAVED SOLUTION</button>
         </div>
         
         <div id="lowerPart">
@@ -45,13 +45,15 @@
                 </div>
                 
                 <button type="button" id = "icon" onclick="getSolution(event)"><i class="icon-search"></i></button>
+                <button onclick="storeData()"><i style="font-size:24px" class="fa">&#xf0c7;</i></button>
             </form>       
         </div>   
         <section id="card">
-            <p id="solutioncard">
+            <p class="solutioncard"> </p>
+            <p class="solutioncard">
                
             </p>
-            <button id="delete"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
+            <button id="delete" onclick="deleteData()"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
         </section>
     </div>
    
