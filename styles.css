@@ -6,7 +6,8 @@
 #container
 {
    width: 100vw;
-   height: 100vh;
+   min-height: 100vh;
+   max-height: fit-content;
    background-color: aquamarine;
    margin: auto;
    padding: 10px;
@@ -50,14 +51,31 @@ form{
     gap: 4%;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
-#input
+form #input
 {
-    padding: 14px;
+    padding: 15px;
+    font-size: 19px;
+    font-weight: 300;
+    color: black;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-label
+form select
 {
-    font-size: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; 
+    border: none;
+    /* padding: 20px; */
+    font-size: 19px;
+    font-weight: 300;
+    color: black;
+}
+form label
+{
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
 }
 #icon
 {
@@ -65,20 +83,33 @@ label
 }
 #card
 {
+    display: none;
     width: 50%;
-    height: 60vh;
+    min-height: 60vh;
+    max-height: fit-content;
     margin: auto;
     margin-top: 20px;
     padding: 1rem;
     line-height: 2rem;
-    background-color: rgb(249, 184, 245);
+    background-color: rgb(237, 226, 237);
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.fa-trash-o
+#trash
 {
-    font-size: 27px;
-    background-color: red;
-    font-weight: 900;
-    color: blue;
+    color: red;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 40px;
+}
+#delete
+{
+    border: none;
+    background-color: transparent;
+    float: right;
+}
+#solutioncard
+{
+    font-size: 25px;
+    font-weight: 300;
 }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="container">
@@ -24,21 +25,33 @@
                 <div>
                     <label>select Category</label>
                     <select id="cat">
-                        <option value="Simplify">Simplify</option>
-                        <option value="answer">Answer</option>
-                        <option value="oneWord">One word</option>
+                        <option value="">select option</option>
+                        <option value="simplify">Simplify</option>
+                        <option value="factor">Factor</option>
+                        <option value="derive">Derive</option>
+                        <option value="integrate">Integrate</option>
+                        <option value="zeroes">Find 0's</option>
+                        <option value="tangent">Find Tangent</option>
+                        <option value="area">Area Under Curve</option>
+                        <option value="cos">Cosine</option>
+                        <option value="sin">Sine</option>
+                        <option value="tan">Tangent	</option>
+                        <option value="arccos">Inverse Cosine</option>
+                        <option value="arcsin">Inverse Sine</option>
+                        <option value="arctan">Inverse Tangent</option>
+                        <option value="abs">Absolute Value</option>
+                        <option value="log">Logarithm</option>
                     </select>
                 </div>
                 
-                <button type="button" id = "icon"><i class="icon-search"></i></button>
+                <button type="button" id = "icon" onclick="getSolution(event)"><i class="icon-search"></i></button>
             </form>       
         </div>   
         <section id="card">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore cupiditate reiciendis blanditiis dolores aliquid! Sint, 
-                perferendis consequatur modi numquam omnis fuga libero nemo deserunt, 
-                vero reiciendis ipsa, saepe dolore dolores.
+            <p id="solutioncard">
+               
             </p>
-            <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+            <button id="delete"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
         </section>
     </div>
    
