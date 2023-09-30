@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Partner</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -12,20 +12,33 @@
 <body>
     <div id="container">
         <div id="upperPart">
-            <h2>Math Partner<img src="image/1f3c6.svg" alt="Troffy" style="height: 40px; width:40px; margin-left: 10px;"/></h2>
-            <button type="button" id="history" onclick="showData()">SAVED SOLUTION</button>
+            <div class="imgDiv">
+                    <img src="image/1f3c6.svg" alt="Troffy" class="TrofyImage"/>
+                    <img src="image/Math.png" alt="Math" class="MathImage"/>
+                    <img src="image/Partner.png" alt="Partner" id="partnerImage"/>
+                
+            </div>
+            <section>
+                <button type="button" class="history" onclick="showHistory(event)">
+                    <span><i class="fa fa-history" aria-hidden="true"></i>History</span>
+                </button>
+                <button class = "history" onclick="storeData()">
+                    <span><i class="icon-save"></i>Save</span>
+                </button>
+                
+            </section>
         </div>
         
         <div id="lowerPart">
             <form action="#">
-                <div>
-                    <label>Problem</label>
-                    <input type="text" id="input" placeholder="TYPE HERE..."/>
+                <div class="inputBox">
+                    <input type="text" id="input" required/>
+                    <span>Problem Expression</span>
                 </div>
-                <div>
-                    <label>select Category</label>
-                    <select id="cat">
-                        <option value="">select option</option>
+                <div class="inputBox">
+                    
+                    <select id="cat" required>
+                        <option value="">select Category</option>
                         <option value="simplify">Simplify</option>
                         <option value="factor">Factor</option>
                         <option value="derive">Derive</option>
@@ -42,19 +55,29 @@
                         <option value="abs">Absolute Value</option>
                         <option value="log">Logarithm</option>
                     </select>
+                    <!-- <span>select Category</span> -->
                 </div>
-                
-                <button type="button" id = "icon" onclick="getSolution(event)"><i class="icon-search"></i></button>
-                <button onclick="storeData()"><i style="font-size:24px" class="fa">&#xf0c7;</i></button>
-            </form>       
+                <div>
+                    <button type="button" class = "icon" onclick="getSolution(event)">
+                        <span><i class="icon-search"></i>Search</span>
+                    </button>
+                </div>
+                </form>   
+            <section>
+                <div id="card"> 
+                    <button class="deleteHistory" onclick="cutHistory()">
+                        X <!-- <i class="fas fa-times-square"></i> -->
+                     </button>
+                </div>
+                <div id="historycard">
+                    <button class="deleteHistory" onclick="cutHistory()">
+                       X <!-- <i class="fas fa-times-square"></i> -->
+                    </button>
+                </div>
+                <button id="delete" onclick="deleteData()"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
+            </section>    
         </div>   
-        <section id="card">
-            <p class="solutioncard"> </p>
-            <p class="solutioncard">
-               
-            </p>
-            <button id="delete" onclick="deleteData()"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
-        </section>
+        
     </div>
    
     <script src="App.js"></script>
