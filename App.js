@@ -1,12 +1,13 @@
 // let card = document.getElementById("card");
+// localStorage.setItem("problems",[]);
 let solutioncard = document.getElementById("card");
 let history = document.getElementById("historycard");
 
 let user = {};
 let obj = {};
-// console.log(localStorage.getItem("problems"));
+// let arr = [];
 let problems = JSON.parse(localStorage.getItem("problems"))||[];
-// console.log(typeof problems); object
+
 async function getSolution(event)
 {
     event.preventDefault();
@@ -15,46 +16,47 @@ async function getSolution(event)
    let operation = document.getElementById("cat").value;
    let expression = document.getElementById("input").value;
    
-    const encodedExpression = encodeURI(expression);
+   const encodedExpression = encodeURI(expression);
    let response = await fetch(`https://newton.now.sh/api/v2/${operation}/${encodedExpression}`);
-   user = await response.json();
+   let u = await response.json();
+   let s = {...u,id:randomId()};
+   user = s;
    solutioncard.style.display = "block";
    solutioncard.innerHTML = `${user.operation}: ${user.expression} \n
    result: ${user.result}`;
 
 //    history.innerHTML = user.result;
-   
    history.style.display = "none";
 }
-
 function storeData()
 {
+    console.log(user);
     obj.operation = user.operation;
     obj.expression = user.expression;
     obj.result = user.result;
-    // console.log(typeof problems);
-    // if(problems&&)
-    // {
+    obj.id = user.id;
+    
+    problems.push(obj);
+    // console.log(arr);
+    localStorage.setItem("problems",JSON.stringify(problems));
+    
         
-    //     ]
-    // }
-    // else
-    // {     
-        problems.push(obj);
-    //     console.log(problems);
-        localStorage.setItem("problems",JSON.stringify(problems));
-    // }
+
     alert("Data is saved to localstorage");
     window.location.reload();
 }
-function showHistory(e)
-{
-    // let div = document.createElement("div");
-    // if(e.target.value ==="undefined");
+document.querySelector(".history").addEventListener("click",function(){
     let arr = JSON.parse(localStorage.getItem("problems"));
+    showHistory(arr);
+})
+function showHistory(arr)
+{
+    
+    console.log(arr);
     arr.map((object,i)=>{
         if(i==0)
         {
+            console.log(object);
             history.innerHTML= `
             <table id="styledTable">
             <thead>
@@ -62,7 +64,7 @@ function showHistory(e)
                <th>Operation</th>
                <th>Expression</th>
                <th>Result</th>
-
+               <th>Delete</th>
               </tr>
             </thead>
              <tbody id="tbody">
@@ -70,16 +72,10 @@ function showHistory(e)
                  <td>${object.operation}</td>
                  <td>${object.expression}</td>
                  <td>${object.result}</td>
+                 <td><button id="delete" onclick= "deleteSingleData('${object.id}')"><i class="fa-solid fa-trash"></i></button></td>
                </tr>
              </tbody>
-           </table>
-            
-            `
-            // problems={
-            //     operation: ${object.operation},
-            //     expression: ${object.expression},
-            //     result: ${object.result}
-            // }
+           </table> `
         }
         else
         {
@@ -88,35 +84,47 @@ function showHistory(e)
             const td1 = document.createElement("td");
             const td2 = document.createElement("td");
             const td3 = document.createElement("td");
+            const td4 = document.createElement("td");
+
             td1.textContent = object.operation;
             td2.textContent = object.expression;
             td3.textContent = object.result;
+            td4.innerHTML = `<button id="delete" onclick="deleteSingleData('${object.id}')"><i class="fa-solid fa-trash"></i></button>`
 
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
+            tr.appendChild(td4);
+
             tbody.appendChild(tr);
-            history.innerHTML+=tbody;
-            //  `,{
-            // operation: ${object.operation},
-            // expression: ${object.expression},
-            // result: ${object.result} }`
         }
         
     })
     
-    // history.appendChild(div);
-    // history.innerHTML = div;
     history.style.display = "block";
     solutioncard.style.display = "none";
 }
 function deleteData()
 {
-    // alert("I am deleting")
     localStorage.removeItem("problems");
     window.location.reload();
 }
 function cutHistory()
 {
     history.style.display = "none";
+}
+
+function randomId() 
+{ 
+    return Math.floor(Math. random()*2000)+"helloJs-g";
+}
+
+function deleteSingleData(id)
+{
+    let newArr = problems.filter((value)=>{
+        return value.id!=id;
+    });
+    localStorage.setItem("problems",JSON.stringify(newArr));
+    // showHistory(newArr);
+    window.location.reload();
 }
