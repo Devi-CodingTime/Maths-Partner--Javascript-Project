@@ -21,16 +21,17 @@
             </div>
             <section>
                 <button type="button" class="history">
-                    <span><i class="fa fa-history" aria-hidden="true"></i>History</span>
+                    <span><i class="fa-solid fa-clock-rotate-left"></i>History</span>
                 </button>
                 <button class = "history" onclick="storeData()">
-                    <span><i class="icon-save"></i>Save</span>
+                    <span><i class="fa-regular fa-floppy-disk"></i>Save</span>
                 </button>
                 
             </section>
         </div>
         
         <div id="lowerPart">
+            <div class="loading" style="display: none;">Loading...</div>
             <form action="#">
                 <div class="inputBox">
                     <input type="text" id="input" required/>
@@ -60,10 +61,16 @@
                 </div>
                 <div>
                     <button type="button" class = "icon" onclick="getSolution(event)">
-                        <span><i class="icon-search"></i>Search</span>
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
                     </button>
                 </div>
-                </form>   
+                </form>  
+                <!-- <div class="tenor-gif-embed" style="height: 60px; width: 100px;" data-postid="15775009" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+                    <a href="https://tenor.com/view/loading-load-gif-15775009">Loading Sticker</a>
+                    from 
+                    <a href="https://tenor.com/search/loading-stickers">Loading Stickers</a>
+                </div> 
+                <script type="text/javascript" async src="https://tenor.com/embed.js"></script>  -->
             <section>
                 <div id="card"> 
                     <!-- <button class="deleteHistory" onclick="cutHistory()">
@@ -74,8 +81,9 @@
                     <!-- <button class="deleteHistory" onclick="cutHistory()">
                        X 
                     </button> -->
+                    
                 </div>
-                <button id="delete" onclick="deleteData()"><i class="fa fa-trash-o" id="trash" aria-hidden="true"></i></button>
+                <button id="delete" onclick="deleteData()"><i class="fa-solid fa-trash"></i></button>
             </section>    
         </div>   
         

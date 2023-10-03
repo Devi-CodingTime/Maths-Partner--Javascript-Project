@@ -17,10 +17,12 @@ async function getSolution(event)
    let expression = document.getElementById("input").value;
    
    const encodedExpression = encodeURI(expression);
+   document.querySelector(".loading").style.display="block";
    let response = await fetch(`https://newton.now.sh/api/v2/${operation}/${encodedExpression}`);
    let u = await response.json();
    let s = {...u,id:randomId()};
    user = s;
+   document.querySelector(".loading").style.display="none";
    solutioncard.style.display = "block";
    solutioncard.innerHTML = `${user.operation}: ${user.expression} \n
    result: ${user.result}`;
@@ -30,20 +32,23 @@ async function getSolution(event)
 }
 function storeData()
 {
-    console.log(user);
-    obj.operation = user.operation;
-    obj.expression = user.expression;
-    obj.result = user.result;
-    obj.id = user.id;
-    
-    problems.push(obj);
-    // console.log(arr);
-    localStorage.setItem("problems",JSON.stringify(problems));
-    
+    if(Object.keys(user).length!=0)
+    {
+        obj.operation = user.operation;
+        obj.expression = user.expression;
+        obj.result = user.result;
+        obj.id = user.id;
         
+        problems.push(obj);
+        console.log(problems);
+        localStorage.setItem("problems",JSON.stringify(problems));
+        
+            
 
-    alert("Data is saved to localstorage");
-    window.location.reload();
+        alert("Data is saved to localstorage");
+        window.location.reload();
+    }
+    
 }
 document.querySelector(".history").addEventListener("click",function(){
     let arr = JSON.parse(localStorage.getItem("problems"));
