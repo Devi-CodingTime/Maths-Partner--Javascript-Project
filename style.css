@@ -19,10 +19,17 @@
 #upperPart
 {
     display: flex;
-    column-gap: 48%;
+    column-gap: 38%;
     flex-wrap: nowrap;
     padding: 1rem 0;
     background-color: black;
+}
+.imgDiv
+{
+    width: 40%;
+}
+#upperPart section{
+    width: 25%;
 }
 #upperPart .MathImage, #upperPart .TrofyImage
 {
@@ -47,7 +54,47 @@
     border: none;
     box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
 }
+/* #upperPart .history:hover{
+    background-color: #350dc5;
+    color: white;
+} */
 /* media query */
+@media only screen and (max-width: 400px) {
+    #upperPart .TrofyImage
+    {
+        display: none;
+    }
+    #upperPart .MathImage
+    {
+        height: 30px; width:110px;
+        margin: 1rem 1rem;
+    }
+    #upperPart #partnerImage
+    {
+        height: 30px; width:150px;
+        margin-left: 1rem;
+    }
+    #upperPart .history{
+        flex-wrap: nowrap;
+        font-size: 1rem;
+        padding: 7px;
+        margin-right: 1rem;
+        border: none;
+        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    }
+    form
+    {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .inputBox
+    {
+        position: relative;
+        width: 10rem;
+        height: 1.5rem;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     #upperPart .TrofyImage
     {
@@ -75,6 +122,10 @@
     {
         flex-direction: column;
         gap: 20px;
+    }
+    .inputBox
+    {
+        width: 50%;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -124,6 +175,7 @@
     #upperPart .history{
         display: inline-block;
         margin-top: 10px;
+        /* gap: 10px; */
         flex-wrap: nowrap;
         font-size: 1rem;
         padding: 7px;
@@ -141,16 +193,21 @@
     padding: 1rem 3rem;
 }
 
-
-.icon
+.searchicon, #delete
 {
     width: fit-content;
     height: fit-content;
-    border-radius: 50%;
+    border-radius: 10px;
     padding: 6px;
     font-size: 30px;
-    color: grey;
+    color: black;
     border: none;
+    /* box-shadow: rgba(280, 29, 165, 33.4) -5px 5px, rgb(159 57 242 / 30%) -10px 10px, #0dc519 -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(280, 34, 185, -19.95) -25px 25px; */
+    background-color: transparent;
+}
+.searchicon:hover, #delete:hover{
+    color: #3bf548;
+    text-shadow:2px 2px 18px #350dc5;
 }
 form{
     display: flex;
@@ -170,7 +227,7 @@ form{
 {
     position: relative;
     width: 20rem;
-    height: 6rem;
+    height: 3rem;
 }
 .inputBox input[type="text"]{
     width: 21.875rem;

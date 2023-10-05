@@ -21,10 +21,10 @@
             </div>
             <section>
                 <button type="button" class="history">
-                    <span><i class="fa-solid fa-clock-rotate-left"></i>History</span>
+                    <span ><i style="margin-right: 5px;" class="fa-solid fa-clock-rotate-left"></i>History</span>
                 </button>
                 <button class = "history" onclick="storeData()">
-                    <span><i class="fa-regular fa-floppy-disk"></i>Save</span>
+                    <span ><i style="margin-right: 5px;" class="fa-regular fa-floppy-disk"></i>Save</span>
                 </button>
                 
             </section>
@@ -59,9 +59,12 @@
                     </select>
                     <!-- <span>select Category</span> -->
                 </div>
-                <div>
-                    <button type="button" class = "icon" onclick="getSolution(event)">
-                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="searchDiv">
+                    <button type="button" class = "searchicon" onclick="getSolution(event)">
+                        <span><i class="fa-solid fa-magnifying-glass" ></i></span>
+                    </button>
+                    <button id="delete" onclick="deleteData()">
+                        <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
                 </form>  
@@ -83,7 +86,7 @@
                     </button> -->
                     
                 </div>
-                <button id="delete" onclick="deleteData()"><i class="fa-solid fa-trash"></i></button>
+                
             </section>    
         </div>   
         
