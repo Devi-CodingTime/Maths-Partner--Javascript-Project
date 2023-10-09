@@ -77,7 +77,7 @@ function showHistory(arr)
                  <td>${object.operation}</td>
                  <td>${object.expression}</td>
                  <td>${object.result}</td>
-                 <td><button id="delete" onclick= "deleteSingleData('${object.id}')"><i class="fa-solid fa-trash"></i></button></td>
+                 <td><button id="delete" onclick= "deleteSingleData('${object.id}')"><i class="fa-solid fa-trash" style="color:red;"></i></button></td>
                </tr>
              </tbody>
            </table> `
@@ -94,7 +94,7 @@ function showHistory(arr)
             td1.textContent = object.operation;
             td2.textContent = object.expression;
             td3.textContent = object.result;
-            td4.innerHTML = `<button id="delete" onclick="deleteSingleData('${object.id}')"><i class="fa-solid fa-trash"></i></button>`
+            td4.innerHTML = `<button id="delete" onclick="deleteSingleData('${object.id}')"><i class="fa-solid fa-trash" style="color:red;"></i></button>`
 
             tr.appendChild(td1);
             tr.appendChild(td2);
