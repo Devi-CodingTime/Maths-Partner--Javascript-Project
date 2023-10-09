@@ -11,7 +11,6 @@ let problems = JSON.parse(localStorage.getItem("problems"))||[];
 async function getSolution(event)
 {
     event.preventDefault();
-    alert("ok");
     obj = {};
    let operation = document.getElementById("cat").value;
    let expression = document.getElementById("input").value;
